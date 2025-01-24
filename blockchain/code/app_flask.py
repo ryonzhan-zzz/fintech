@@ -2,7 +2,7 @@ import uuid
 
 from flask import Flask, jsonify, request, render_template
 
-from blockcoin.code.Blockchain import Blockchain
+from blockchain.code.Blockchain import Blockchain
 
 app = Flask(__name__)
 node_identifier = str(uuid.uuid4()).replace('-', '')

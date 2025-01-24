@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>区块链接口调用界面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>区块链接口调用界面</h1>
+
+    <!-- 标签页 -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'full-chain')">获取完整区块链信息</button>
+        <button class="tablinks" onclick="openTab(event, 'mine-block')">挖矿</button>
+        <button class="tablinks" onclick="openTab(event, 'new-transaction')">新增交易</button>
+        <button class="tablinks" onclick="openTab(event, 'add-nodes')">添加节点</button>
+        <button class="tablinks" onclick="openTab(event, 'sync-chain')">同步区块链</button>
+    </div>
+
+    <!-- 获取完整区块链信息 -->
+    <div id="full-chain" class="tabcontent">
+        <button onclick="getFullChain()">获取完整区块链信息</button>
+        <textarea id="full-chain-result" readonly></textarea>
+    </div>
+
+    <!-- 挖矿 -->
+    <div id="mine-block" class="tabcontent">
+        <button onclick="mineBlock()">挖矿</button>
+        <textarea id="mine-block-result" readonly></textarea>
+    </div>
+
+    <!-- 新增交易 -->
+    <div id="new-transaction" class="tabcontent">
+        <h2>新增交易</h2>
+        <label for="sender">发送者 (示例: user1):</label>
+        <input type="text" id="sender" placeholder="user1" required><br>
+        <label for="recipient">接收者 (示例: user2):</label>
+        <input type="text" id="recipient" placeholder="user2" required><br>
+        <label for="amount">金额 (示例: 10):</label>
+        <input type="number" id="amount" placeholder="10" required><br>
+        <button onclick="newTransaction()">提交交易</button>
+        <textarea id="new-transaction-result" readonly></textarea>
+    </div>
+
+    <!-- 添加节点 -->
+    <div id="add-nodes" class="tabcontent">
+        <h2>添加节点</h2>
+        <label for="nodes">节点列表 (用逗号分隔，示例: http://node1.com,http://node2.com):</label>
+        <input type="text" id="nodes" placeholder="http://node1.com,http://node2.com"><br>
+        <button onclick="addNodes()">添加节点</button>
+        <textarea id="add-nodes-result" readonly></textarea>
+    </div>
+
+    <!-- 同步区块链 -->
+    <div id="sync-chain" class="tabcontent">
+        <button onclick="syncChain()">同步区块链</button>
+        <textarea id="sync-chain-result" readonly></textarea>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        async function getFullChain() {
+            try {
+                const response = await fetch('/blockchain');
+                const data = await response.json();
+                document.getElementById('full-chain-result').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('full-chain-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        async function mineBlock() {
+            try {
+                const response = await fetch('/mine');
+                const data = await response.json();
+                document.getElementById('mine-block-result').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('mine-block-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        async function newTransaction() {
+            const sender = document.getElementById('sender').value;
+            const recipient = document.getElementById('recipient').value;
+            const amount = document.getElementById('amount').value;
+
+            if (!sender || !recipient || !amount) {
+                document.getElementById('new-transaction-result').value = '请填写所有必填字段';
+                return;
+            }
+
+            try {
+                const response = await fetch('/transactions/new', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        sender: sender,
+                        recipient: recipient,
+                        amount: amount
+                    })
+                });
+                const data = await response.text();
+                document.getElementById('new-transaction-result').value = data;
+            } catch (error) {
+                document.getElementById('new-transaction-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        async function addNodes() {
+            const nodesInput = document.getElementById('nodes').value;
+            const nodes = nodesInput.split(',').map(node => node.trim());
+
+            if (nodes.length === 0) {
+                document.getElementById('add-nodes-result').value = '请输入节点列表';
+                return;
+            }
+
+            try {
+                const response = await fetch('/nodes/add_nodes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nodes: nodes
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('add-nodes-result').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('add-nodes-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        async function syncChain() {
+            try {
+                const response = await fetch('/nodes/sync');
+                const data = await response.json();
+                document.getElementById('sync-chain-result').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('sync-chain-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        // 默认打开第一个标签页
+        document.getElementsByClassName("tablinks")[0].click();
+    </script>
+</body>
+    <b>我不会写前端，将就着看-ryonzhan</b>
+</html>

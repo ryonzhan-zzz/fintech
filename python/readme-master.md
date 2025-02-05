@@ -1,7 +1,7 @@
 ## 老鸟版
 这还用教？
 
-![img_30.png](../pics/img_30.png)
+![img_30.png](../.README_images/img_30.png)
 
 ## 相关文档
 - python环境：http://8.138.120.67:8081/share_doc/?token=f61013fcee6eb5472165c17117e5b749

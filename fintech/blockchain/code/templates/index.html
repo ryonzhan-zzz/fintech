@@ -4,118 +4,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>区块链接口调用界面</title>
+    <title>区块链操作界面</title>
     <style>
+        /* 全局样式 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
             padding: 20px;
+            margin: 0;
         }
 
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 标签页样式 */
         .tab {
+            display: flex;
+            justify-content: center;
+            background-color: #3498db;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
+            margin-bottom: 20px;
         }
 
         .tab button {
             background-color: inherit;
-            float: left;
             border: none;
             outline: none;
             cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
+            padding: 14px 20px;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
 
         .tab button:hover {
-            background-color: #ddd;
+            background-color: #2980b9;
         }
 
         .tab button.active {
-            background-color: #ccc;
+            background-color: #1abc9c;
         }
 
+        /* 标签内容样式 */
         .tabcontent {
             display: none;
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-top: none;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 表单样式 */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* 按钮样式 */
         button {
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #007BFF;
+            padding: 12px 20px;
+            background-color: #3498db;
             color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s ease-in-out;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #2980b9;
         }
 
+        /* 提示信息样式 */
+        p {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        /* 文本区域样式 */
         textarea {
             width: 100%;
-            height: 200px;
-            margin-top: 10px;
+            height: 400px;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: vertical;
+            margin-top: 15px;
+            box-sizing: border-box;
+        }
+
+        /* 新增块区域样式 */
+        #add-block {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        #add-block .left,
+        #add-block .right {
+            width: 48%;
+        }
+
+        /* 提交成功提示框样式 */
+        #success-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* 底部提示文字样式 */
+        b {
+            display: block;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <h1>区块链接口调用界面</h1>
+    <h1>区块链操作界面</h1>
 
     <!-- 标签页 -->
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'full-chain')">获取完整区块链信息</button>
-        <button class="tablinks" onclick="openTab(event, 'mine-block')">挖矿</button>
-        <button class="tablinks" onclick="openTab(event, 'new-transaction')">新增交易</button>
-        <button class="tablinks" onclick="openTab(event, 'add-nodes')">添加节点</button>
-        <button class="tablinks" onclick="openTab(event, 'sync-chain')">同步区块链</button>
+        <button class="tablinks" onclick="openTab(event, 'control-help')">操作手册</button>
+        <button class="tablinks" onclick="openTab(event, 'init-block')">初始化链表</button>
+        <button class="tablinks" onclick="openTab(event, 'add-transaction')">新增交易</button>
+        <button class="tablinks" onclick="openTab(event, 'add-block')">提交块</button>
+        <button class="tablinks" onclick="openTab(event, 'add-node')">新增节点</button>
+        <button class="tablinks" onclick="openTab(event, 'sync-nodes')">同步节点</button>
     </div>
 
-    <!-- 获取完整区块链信息 -->
-    <div id="full-chain" class="tabcontent">
-        <button onclick="getFullChain()">获取完整区块链信息</button>
-        <textarea id="full-chain-result" readonly></textarea>
+    <div id="control-help" class="tabcontent">
+        <h3>操作提示</h3>
+        <p>1.点击“初始化链表”，一个新的节点会被创建</p>
+        <p>2.点击“新增交易”，可以增加新的交易信息，相关信息会被暂时存入当前的block</p>
+        <p>3.点击“提交块”，当前block信息会被固化，并且可以在节点链表中发现</p>
+        <p>4.点击“新增节点”，可以增加新的节点，当前可以选择其他两个节点</p>
+        <p>5.点击“同步节点”，可以同步所有网络中的信息，即将现在的所有块信息进行广播，此处不包括广播没有结束的块信息</p>
     </div>
 
-    <!-- 挖矿 -->
-    <div id="mine-block" class="tabcontent">
-        <button onclick="mineBlock()">挖矿</button>
-        <textarea id="mine-block-result" readonly></textarea>
+    <div id="init-block" class="tabcontent">
+        <div class="right">
+            <h2>当前所有的块</h2>
+            <textarea id="all-blocks-result1" readonly></textarea>
+        </div>
+    </div>
+    <!-- 增加新的块 -->
+    <div id="add-block" class="tabcontent">
+        <div class="left">
+            <button onclick="addNewBlock()">提交旧block并创建新block</button>
+            <textarea id="add-block-result" readonly></textarea>
+        </div>
+        <div class="right">
+            <h2>当前所有的块</h2>
+            <textarea id="all-blocks-result" readonly></textarea>
+        </div>
     </div>
 
-    <!-- 新增交易 -->
-    <div id="new-transaction" class="tabcontent">
-        <h2>新增交易</h2>
-        <label for="sender">发送者 (示例: user1):</label>
-        <input type="text" id="sender" placeholder="user1" required><br>
-        <label for="recipient">接收者 (示例: user2):</label>
-        <input type="text" id="recipient" placeholder="user2" required><br>
-        <label for="amount">金额 (示例: 10):</label>
-        <input type="number" id="amount" placeholder="10" required><br>
-        <button onclick="newTransaction()">提交交易</button>
-        <textarea id="new-transaction-result" readonly></textarea>
+    <!-- 增加新交易 -->
+    <div id="add-transaction" class="tabcontent">
+        <form>
+            <label for="tx-sender">发送者:</label>
+            <input type="text" id="tx-sender" placeholder="sender" value="ryonzhan" required>
+            <label for="tx-recipient">接收者:</label>
+            <input type="text" id="tx-recipient" placeholder="recipient" value="雷锋" required>
+            <label for="tx-amount">金额:</label>
+            <input type="number" id="tx-amount" placeholder="amount" value="100" required>
+        </form>
+        <button onclick="addNewTransaction()">新增交易到当前block</button>
+        <p>新增的交易当前看不到，只有在新增下一个节点之后，相应的信息才会显示</p>
+        <textarea id="add-transaction-result" readonly></textarea>
     </div>
 
-    <!-- 添加节点 -->
-    <div id="add-nodes" class="tabcontent">
-        <h2>添加节点</h2>
-        <label for="nodes">节点列表 (用逗号分隔，示例: http://node1.com,http://node2.com):</label>
-        <input type="text" id="nodes" placeholder="http://node1.com,http://node2.com"><br>
-        <button onclick="addNodes()">添加节点</button>
-        <textarea id="add-nodes-result" readonly></textarea>
+    <!-- 增加新节点 -->
+    <div id="add-node" class="tabcontent">
+        <select id="node-select">
+            <option value="http://localhost:5001">http://localhost:5001</option>
+            <option value="http://localhost:5002">http://localhost:5002</option>
+        </select>
+        <button onclick="addNewNode()">添加节点</button>
+        <textarea id="add-node-result" readonly></textarea>
     </div>
 
-    <!-- 同步区块链 -->
-    <div id="sync-chain" class="tabcontent">
-        <button onclick="syncChain()">同步区块链</button>
-        <textarea id="sync-chain-result" readonly></textarea>
+    <!-- 同步节点信息 -->
+    <div id="sync-nodes" class="tabcontent">
+        <button onclick="syncNodes()">同步节点</button>
+        <textarea id="sync-nodes-result" readonly></textarea>
     </div>
+
+    <!-- 提交成功提示框 -->
+    <div id="success-message">提交成功！</div>
 
     <script>
+        // 交易记录计数器
+        let transactionCount = 0;
+
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.opacity = 1;
+            setTimeout(() => {
+                successMessage.style.opacity = 0;
+            }, 2000);
+        }
+
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -126,37 +273,38 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(tabName).style.display = "block";
+            const exemptId = "add-block";
+
+            if (tabName!== exemptId) {
+                // 如果不是豁免的 id，将其显示
+                document.getElementById(tabName).style.display = "block";
+            } else {
+                document.getElementById(tabName).style.display = "flex";
+            }
+
             evt.currentTarget.className += " active";
         }
 
-        async function getFullChain() {
-            try {
-                const response = await fetch('/blockchain');
-                const data = await response.json();
-                document.getElementById('full-chain-result').value = JSON.stringify(data, null, 2);
-            } catch (error) {
-                document.getElementById('full-chain-result').value = `Error: ${error.message}`;
-            }
-        }
-
-        async function mineBlock() {
+        async function addNewBlock() {
             try {
                 const response = await fetch('/mine');
                 const data = await response.json();
-                document.getElementById('mine-block-result').value = JSON.stringify(data, null, 2);
+                document.getElementById('add-block-result').value = JSON.stringify(data, null, 2);
+                // 创建新块后，更新所有块的显示
+                await displayAllBlocks();
+                showSuccessMessage();
             } catch (error) {
-                document.getElementById('mine-block-result').value = `Error: ${error.message}`;
+                document.getElementById('add-block-result').value = `Error: ${error.message}`;
             }
         }
 
-        async function newTransaction() {
-            const sender = document.getElementById('sender').value;
-            const recipient = document.getElementById('recipient').value;
-            const amount = document.getElementById('amount').value;
+        async function addNewTransaction() {
+            const sender = document.getElementById('tx-sender').value;
+            const recipient = document.getElementById('tx-recipient').value;
+            const amount = document.getElementById('tx-amount').value;
 
-            if (!sender || !recipient || !amount) {
-                document.getElementById('new-transaction-result').value = '请填写所有必填字段';
+            if (!sender ||!recipient ||!amount) {
+                document.getElementById('add-transaction-result').value = '请填写所有必填字段';
                 return;
             }
 
@@ -173,51 +321,65 @@
                     })
                 });
                 const data = await response.text();
-                document.getElementById('new-transaction-result').value = data;
+                transactionCount++;
+                document.getElementById('add-transaction-result').value = `第 ${transactionCount} 笔交易记录：\n${data}`;
+                showSuccessMessage();
             } catch (error) {
-                document.getElementById('new-transaction-result').value = `Error: ${error.message}`;
+                document.getElementById('add-transaction-result').value = `Error: ${error.message}`;
             }
         }
 
-        async function addNodes() {
-            const nodesInput = document.getElementById('nodes').value;
-            const nodes = nodesInput.split(',').map(node => node.trim());
-
-            if (nodes.length === 0) {
-                document.getElementById('add-nodes-result').value = '请输入节点列表';
-                return;
-            }
-
+        async function addNewNode() {
+            const selectedNode = document.getElementById('node-select').value;
             try {
-                const response = await fetch('/nodes/add_nodes', {
+                const response = await fetch('/nodes/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        nodes: nodes
+                        nodes: [selectedNode]
                     })
                 });
                 const data = await response.json();
-                document.getElementById('add-nodes-result').value = JSON.stringify(data, null, 2);
+                document.getElementById('add-node-result').value = JSON.stringify(data, null, 2);
+                showSuccessMessage();
             } catch (error) {
-                document.getElementById('add-nodes-result').value = `Error: ${error.message}`;
+                document.getElementById('add-node-result').value = `Error: ${error.message}`;
             }
         }
 
-        async function syncChain() {
+        async function syncNodes() {
             try {
                 const response = await fetch('/nodes/sync');
                 const data = await response.json();
-                document.getElementById('sync-chain-result').value = JSON.stringify(data, null, 2);
+                document.getElementById('sync-nodes-result').value = JSON.stringify(data, null, 2);
+                // 同步节点后，更新所有块的显示
+                await displayAllBlocks();
+                showSuccessMessage();
             } catch (error) {
-                document.getElementById('sync-chain-result').value = `Error: ${error.message}`;
+                document.getElementById('sync-nodes-result').value = `Error: ${error.message}`;
+            }
+        }
+
+        async function displayAllBlocks() {
+            try {
+                const response = await fetch('/blockchain');
+                const data = await response.json();
+                document.getElementById('all-blocks-result').value = JSON.stringify(data.chain, null, 2);
+                document.getElementById('all-blocks-result1').value = JSON.stringify(data.chain, null, 2);
+            } catch (error) {
+                document.getElementById('all-blocks-result').value = `Error: ${error.message}`;
+                document.getElementById('all-blocks-result1').value = `Error: ${error.message}`;
             }
         }
 
         // 默认打开第一个标签页
         document.getElementsByClassName("tablinks")[0].click();
+        // 页面加载时显示所有块
+        displayAllBlocks();
     </script>
+    <b>我不会写前端，将就着用</b>
 </body>
-    <b>我不会写前端，将就着看-ryonzhan</b>
+
 </html>

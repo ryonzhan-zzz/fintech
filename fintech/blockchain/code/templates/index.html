@@ -183,11 +183,11 @@
     <!-- 标签页 -->
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'control-help')">操作手册</button>
-        <button class="tablinks" onclick="openTab(event, 'init-block')">初始化链表</button>
-        <button class="tablinks" onclick="openTab(event, 'add-transaction')">新增交易</button>
-        <button class="tablinks" onclick="openTab(event, 'add-block')">提交块</button>
-        <button class="tablinks" onclick="openTab(event, 'add-node')">新增节点</button>
-        <button class="tablinks" onclick="openTab(event, 'sync-nodes')">同步节点</button>
+        <button class="tablinks" onclick="openTab(event, 'init-block')">初始化blockchain</button>
+        <button class="tablinks" onclick="openTab(event, 'add-transaction')">新增transaction</button>
+        <button class="tablinks" onclick="openTab(event, 'add-block')">提交block</button>
+        <button class="tablinks" onclick="openTab(event, 'add-node')">新增node</button>
+        <button class="tablinks" onclick="openTab(event, 'sync-nodes')">同步node</button>
     </div>
 
     <div id="control-help" class="tabcontent">
@@ -227,6 +227,7 @@
             <label for="tx-amount">金额:</label>
             <input type="number" id="tx-amount" placeholder="amount" value="100" required>
         </form>
+        <p></p>
         <button onclick="addNewTransaction()">新增交易到当前block</button>
         <p>新增的交易当前看不到，只有在新增下一个节点之后，相应的信息才会显示</p>
         <textarea id="add-transaction-result" readonly></textarea>

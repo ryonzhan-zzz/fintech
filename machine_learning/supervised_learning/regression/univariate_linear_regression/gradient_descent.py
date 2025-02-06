@@ -44,8 +44,8 @@ def mse_loss(x, y, b, k):
 b, k, b_history, k_history = gradient_descent(x, y, b, k, alpha, num_iters)
 
 # 生成 b 和 k 的网格，扩大范围以展示完整曲面
-b_grid = np.linspace(-100000, 100000, 1000)
-k_grid = np.linspace(-100000, 100000, 1000)
+b_grid = np.linspace(-10, 10, 100)
+k_grid = np.linspace(-10, 10, 100)
 B, K = np.meshgrid(b_grid, k_grid)
 Z = np.zeros_like(B)
 for i in range(B.shape[0]):

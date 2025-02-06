@@ -54,6 +54,7 @@
 其中，$\bar{x}=\frac{1}{n}\sum_{i = 1}^{n}x_i$ 是 $x$ 的均值，$\bar{y}=\frac{1}{n}\sum_{i = 1}^{n}y_i$ 是 $y$ 的均值。
 ### 代码
 [代码跳转](simple_linear_regression.py)
+
 或者
 `python simple_linear_regression.py`
 
@@ -66,27 +67,17 @@
 ### 原理
 类似于下山，我们如何找到一条直通山脚的路径，这就是梯度下降法的大白话。
 
-想看视频的，我找了一个，请参考该B站链接：[不至于吧，梯度下降简单得有点离谱了啊！](https://www.bilibili.com/video/BV19f421Q7CL/?share_source=copy_web&vd_source=8a03b8f7d83afe5d05fff15bece5a63a)
+想看视频的，参考该B站链接：[不至于吧，梯度下降简单得有点离谱了啊！](https://www.bilibili.com/video/BV19f421Q7CL/?share_source=copy_web&vd_source=8a03b8f7d83afe5d05fff15bece5a63a)
 
 ### 解析
 如果想看文字版的，请继续阅读，我会按照实战取解析，建议对着代码一起阅读。
-[代码跳转](gradient_descent.py)
 
-先明确我们的损失函数是什么，顾名思义，损失就是实际值和预测值之间的误差。
-以一个点举例，假设实际值是 $(2,6)$，预测函数值是 $y=2x+1$，那么损失就是
-$$loss=6-(2*2+1)=1$$
-聪明的你此时会发现，正数好说，那如果算出来的差值是负数，那不就容易正负抵消了吗
+[文字版解析](../../../../ai/gradient_descent.md)
 
-如$(1,2)$，和预测函数值是 $y=2x+1$
-$$loss=2-(1*2+1)=-1$$
+### 代码
+这里我实现的是最简单的BGD
 
-所以我们需要对这个差值做平方（MSE）或者是取绝对值（MAE），这样我们的损失就变成正数了。
+[代码跳转](gradient_descent.py) 
 
-接着，对每一个点的损失求和，我们就可以得到一个损失函数，我们的目标就是让这个损失函数的值最小。
-
-按照我们`ppt-8`上的内容
-$$loss(h_w)=\sum_{j = 1}^{N}(y_j - (w_1x_j + w_0))^2$$
-为了方便解释，现在我用 $k$ 替代 $w_1$，用 $b$ 替代 $w_0$，那么我们的损失函数就变成
-$$loss(h_w)=\sum_{j = 1}^{N}(y_j - (kx_j + b))^2$$
-
-损失函数说完了，那么如何进行下降呢，我们非常容易就可以发现
+或者
+`python gradient_descent.py`

@@ -18,18 +18,22 @@
 | 插件安装      | 安装pycharm相关插件                               | [文档](./python/plugin.md) |
 
 ### fintech
+**课程编号**：AMA571
 
-| 分类            | 详细内容             | 文档链接                               |
-|---------------|------------------|------------------------------------|
-| Blockchain 相关 | 区块链相关知识，代码来自ppt。 | [文档](fintech/blockchain/readme.md) |
+**课程名称**：FINANCIAL TECHNOLOGY
+
+请跳转到该目录下查看：[文档](fintech/blockchain/readme.md)
 
 ### machine_learning
+**课程编号**：COMP5564
 
-| 分类      | 详细内容         | 文档链接                                                |
-|---------|--------------|-----------------------------------------------------|
-| 回归学习 相关 | 包含回归、梯度下降等内容 | [文档](./machine_learning/machine_learning-readme.md) |
+**课程名称**：Machine Learning and Its Applications in Finance
 
-update：2025-02-06
+请跳转到该目录下查看：[文档](./machine_learning/machine_learning-readme.md)
+
+---
+
+update：2025-03-03
 
 by RyonZhan
 

@@ -23,23 +23,33 @@
 ---
 
 ## 课程 📚
+PolyU-Master of Science in Quantitative Finance and FinTech专业
 
 以下是目前已整理的课程相关信息，你可以通过点击相应的链接跳转到具体的课程文档：
 
 ### fintech
+- **必修**
 - **课程编号**：AMA571
 - **课程名称**：FINANCIAL TECHNOLOGY
-- **跳转**：[文档](fintech/fintech-readme.md)
+- **跳转**：[文档](class/financial_technology/fintech-readme.md)
 
 ### quantitative_finance
+- **必修**
 - **课程编号**：AMA568
 - **课程名称**：ADVANCED TOPICS IN QUANTITATIVE FINANCE
-- **跳转**：[文档](quantitative_finance/quantitative_finance-readme.md)
+- **跳转**：[文档](class/quantitative_finance/quantitative_finance-readme.md)
 
 ### machine_learning
+- **选修**
 - **课程编号**：COMP5564
 - **课程名称**：Machine Learning and Its Applications in Finance
-- **跳转**：[文档](machine_learning/machine_learning-readme.md)
+- **跳转**：[文档](class/machine_learning/machine_learning-readme.md)
+
+### fix_income
+- **选修**
+- **课程编号**：AMA572
+- **课程名称**：FIXED-INCOME AND CREDIT RISK
+- **跳转**：[文档](class/fix_income/fix_income-readme.md)
 
 ---
 
@@ -48,6 +58,6 @@
 - **跳转**：[文档](note/readme.md)
 ---
 
-- update：2025-03-11
+- update：2025-07-18
 - by：RyonZhan 
 

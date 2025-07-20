@@ -6,13 +6,25 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 一些碎碎念，第一年小白鼠，给后来人留点东西，也欢迎交流。
 
-### 提示
+### 选课情况
 
-> 提示：
-> 由于本项目是使用 PyCharm 编写的，可能会在其他 Web 端或软件上出现显示方面的问题。
+这个专业你甭想一年内修完，我天真的想着混一年就算了，但是选课就直接卡死你，无课可选，最快一年半。
 
-若遇到无法显示数学公式的情况，请及时将你的 PyCharm 升级到最新版本。为了解决这个问题，我已经花费了一整晚的时间进行研究和调试。
-希望你在使用过程中不会遇到此类困扰，若有任何问题，欢迎随时交流。
+按照第一届的情况，大概是`3+4+1+2`（修summer term），那么就是`3+4+3`（不修summer term）或者`3+4+论文`
+。学院原则上是不给修超过四门课一个学期的，而选论文的话在summer前就要选好导师所以需要修够7门，所以绝大部分人就是这三种情况
+
+| 类型\时间 | 第一学期（9-12月） | 第二学期（9-12月） | 暑期（9-12月） | 第三学期（9-12月） |
+|-------|-------------|-------------|-----------|-------------|
+| 非论文   | 3门          | 4门          | 1门        | 2门          |
+| 非论文   | 3门          | 4门          | -         | 3门          |
+| 选论文   | 3门          | 4门          | -         | -           |
+
+### 专业介绍
+
+- 如果你是学计算机类的，第一个学期生不如死。如果你是学金工金数统计的，第二个学期有点难受。如果你不是学上面这两类的，😀。
+- 这专业贼贵，第一年36w，第二年38w，40指日可待，如果你还打算去nyu，准备好140吧
+- 这专业就业面挺广，可以去量化、互联网、传统金融。
+- 这专业很方便和朋友吹牛逼，hjb、deep-hedge把别人唬得一愣一愣得
 
 ---
 
@@ -20,16 +32,22 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 以下是目前已整理的课程相关信息，你可以通过点击相应的链接跳转到具体的课程文档：
 
-| 学期    | 专业简称                 | 类型 | 编号       | 专业全称                                             | 跳转链接                                                            | 时间              |
-|-------|----------------------|----|----------|--------------------------------------------------|-----------------------------------------------------------------|-----------------|
-| sem 1 | financial_market     | 必修 | AF5381   | FINANCIAL MARKETS                                | -                                                               | 周二12:30-15:20   |
-| sem 1 | derivative_pricing   | 必修 | AMA535   | MATHEMATICAL MODELS OF DERIVATIVE PRICING        | -                                                               | 周三09:30-12:20   |
-| sem 1 | investment_science   | 必修 | AMA532   | INVESTMENT SCIENCE                               | -                                                               | 周三18:30-21:30   |
-| sem 2 | high_frequency       | 必修 | AMA566   | ADVANCED TOPICS IN HIGH FREQUENCY TRADING        | -                                                               | 周一18:30-21:20   |
-| sem 2 | machine_learning     | 选修 | COMP5564 | Machine Learning and Its Applications in Finance | [文档](class/machine_learning/machine_learning-readme.md)         | 周二18:30-21:20   |
-| sem 2 | quantitative_finance | 必修 | AMA568   | ADVANCED TOPICS IN QUANTITATIVE FINANCE          | [文档](class/quantitative_finance/quantitative_finance-readme.md) | 周三18:30-21:20   |
-| sem 2 | fintech              | 必修 | AMA571   | FINANCIAL TECHNOLOGY                             | [文档](class/financial_technology/fintech-readme.md)              | 周四18:30-21:20   |
-| sem 3 | fix_income           | 选修 | AMA572   | FIXED-INCOME AND CREDIT RISK                     | [文档](class/fix_income/fix_income-readme.md)                     | 周四周五18:30-21:20 |
+| 学期       | 专业简称                 | 类型 | 编号       | 专业全称                                             | 跳转链接                                                            | 时间              |
+|----------|----------------------|----|----------|--------------------------------------------------|-----------------------------------------------------------------|-----------------|
+| `1`      | financial_market     | 必修 | AF5381   | FINANCIAL MARKETS                                | -                                                               | 周二12:30-15:20   |
+| `1`      | derivative_pricing   | 必修 | AMA535   | MATHEMATICAL MODELS OF DERIVATIVE PRICING        | -                                                               | 周三09:30-12:20   |
+| `1`      | investment_science   | 必修 | AMA532   | INVESTMENT SCIENCE                               | -                                                               | 周三18:30-21:30   |
+| `1`      | academic_integrity   | 必修 | AF5T21   | ACADEMIC INTEGRITY AND ETHICS IN BUSINESS        | -                                                               | 忘了，网课来的         |
+| `2`      | high_frequency       | 必修 | AMA566   | ADVANCED TOPICS IN HIGH FREQUENCY TRADING        | -                                                               | 周一18:30-21:20   |
+| `2`      | machine_learning     | 选修 | COMP5564 | Machine Learning and Its Applications in Finance | [文档](class/machine_learning/machine_learning-readme.md)         | 周二18:30-21:20   |
+| `2`      | quantitative_finance | 必修 | AMA568   | ADVANCED TOPICS IN QUANTITATIVE FINANCE          | [文档](class/quantitative_finance/quantitative_finance-readme.md) | 周三18:30-21:20   |
+| `2`      | fintech              | 必修 | AMA571   | FINANCIAL TECHNOLOGY                             | [文档](class/financial_technology/fintech-readme.md)              | 周四18:30-21:20   |
+| `2`      | accounting           | 必修 | AF5115   | ACCOUNTING FOR BUSINESS ANALYSIS                 | -                                                               | 我没选             |
+| `2`      | deep_learning        | 必修 | AMA564   | DEEP LEARNING                                    | -                                                               | 我没选             |
+| `summer` | fix_income           | 选修 | AMA572   | FIXED-INCOME AND CREDIT RISK                     | [文档](class/fix_income/fix_income-readme.md)                     | 周四周五18:30-21:20 |
+
+> 提示：
+> 由于本项目是使用 PyCharm 编写的，可能会在其他 Web 端或软件上出现显示方面的问题。
 
 ---
 
@@ -46,7 +64,7 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 ## 笔记 📚
 
-一些笔者个人的相关笔记，主要关于LLM的内容
+一些笔者个人的相关笔记
 
 - **跳转**：[文档](note/readme.md)
 
@@ -63,6 +81,6 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 ---
 
-- update：2025-07-18
+- update：2025-07-20
 - by：RyonZhan 
 

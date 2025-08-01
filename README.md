@@ -13,7 +13,7 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 > 写的不容易，又不收你钱，点个star啦。（全手打，没有授权给任何人，抄袭被雷劈）。
 > 如果你还有什么细致的问题，可以加我wx，`ryonzhanzzz`。
 
-
+---
 
 ### 选课情况
 
@@ -27,6 +27,8 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 | 非论文   | 3门          | 4门         | 1门       | 2门          |
 | 非论文   | 3门          | 4门         | -        | 3门          |
 | 选论文   | 3门          | 4门         | -        | -           |
+
+---
 
 ### 专业介绍
 

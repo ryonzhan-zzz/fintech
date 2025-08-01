@@ -1,7 +1,4 @@
-# quantitative_finance
-
 ==必修课==
-
 
 ## AMA568 ADVANCED TOPICS IN QUANTITATIVE FINANCE
 
@@ -14,6 +11,25 @@
 前半个学期的授课老师：Dai Min老师，资历非常牛逼。但是或许是境界比较高也经常给phd的人上课，给我们讲课的个人确实听不太懂。
 
 后半学期的授课老师：Lian Guanghua老师，是外部（某大型金融公司）请来的老师，资历也是很高，会介绍一些金融工具和金融产品。
+## 分数
+- two assignments 20% 
+- midterm exam 30% 
+- final exam 50%
+
+## 课程内容
+Contents (the first half):
+- Preliminaries
+- American options and early exercise
+- Path-dependent options
+- Beyond the Black-Scholes model
+
+Contents (the second half):
+- DCD
+- Convertible Bonds
+- Snowball
+- Volatility Trading
+- Strategies - Variance Risk Premium and Skewness
+- Strategy - OMM
 
 ## 作业量
 两个作业，一个是期中前的，一个是期中后的，不难但是题目多，会有代码题。

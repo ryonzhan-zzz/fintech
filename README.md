@@ -10,12 +10,12 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 一些碎碎念，第一年小白鼠，给后来人留点东西，也欢迎交流。
 
 > rz:
-> 写的不容易，又不收你钱，点个star啦。（全手打，没有授权给任何人，抄袭被雷劈）。
+> 课程介绍梳理的不容易，又不收你钱，点个star啦。（全手打，没有授权给任何人，抄袭被雷劈）。
 > 如果你还有什么细致的问题，可以加我wx，`ryonzhanzzz`。
 
 ---
 
-### 选课情况
+### 选课情况⭐
 
 这个专业你甭想一年内修完，我天真的想着混一年就算了，但是选课就直接卡死你，无课可选，最快一年半。
 
@@ -60,13 +60,10 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 | time_series          | 选修 | AMA515A  | FORECASTING AND APPLIED TIME SERIES ANALYSIS | 我没选                                                             |
 | statistical_ml       | 选修 | AMA573   | STATISTICAL MACHINE LEARNING                 | 我没选                                                             |
 
-> 提示：
-> 由于本项目是使用 PyCharm 编写的，可能会在其他 Web 端或软件上出现显示方面的问题。
 
 ---
 
-## 住宿
-
+## 生活
 如果你家在大湾区，那么完全可以不住hk，按照课程安排，完全可以有课住酒店没课回家住，hk这地方又贵又小，居住体验感极差。
 
 如果你家不住湾区，别信那些中介忽悠人，现在hk房市不好，别被他们push了，自己去28hse上看房子，大把房东直租还没中介费地段还好。
@@ -75,17 +72,17 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 附上攻略：http://8.138.120.67:8081/share_doc/?token=765b0621ba089b2ae7f84823f0708820
 
 ---
-## 生活
 
-会粤语吗，不会没事，现在好多了。不像我十年前来hk
+## 工作 📚
 
----
+> 提示：
+> 涉及一些内部信息，该篇章只会开源部分内容，感兴趣可以联系笔者获取。
 
-## 笔记 📚
-
-一些笔者个人的相关笔记
-
-- **跳转**：[文档](note/readme.md)
+| 分类  | 详细内容                                              | 文档链接                                          |
+|-----|---------------------------------------------------|-----------------------------------------------|
+| 互联网 | 主要有关技术岗位，如：岗位内容、薪酬、面经等<br>调研的对象都为在职的、笔者或笔者朋友去过的公司 | [文档](./work/company_hulianwang/hulianwang.md) |
+| 国企  | 包括业务岗和技术岗，大致同上                                    | [文档](./work/company_guoqi/guoqi.md)           |
+| 量化  | 笔者正在尝试的赛道，总结了一些考点和面经，包括qr和qd                      | [文档](./work/company_lianghua/lianghua.md)     |
 
 ---
 
@@ -100,6 +97,6 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 ---
 
-- update：2025-08-01
+- update：2025-08-02
 - by：RyonZhan 
 

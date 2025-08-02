@@ -6,7 +6,7 @@
 
 | 分类          | 介绍                             | 文档链接                  | 
 |-------------|--------------------------------|-----------------------|
-| transformer | 经典论文：attention is all u need笔记 | [文档](./class/决策树.pdf) |         
+| transformer | 经典论文：attention is all u need笔记 | |         
 
 ### LAB
 

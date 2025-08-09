@@ -97,6 +97,6 @@ PolyU-Master of Science in Quantitative Finance and FinTech专业，简称QFFT
 
 ---
 
-- update：2025-08-02
+- update：2025-08-09
 - by：RyonZhan 
 
